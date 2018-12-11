@@ -24,9 +24,19 @@ $text-color: #c7c7c7;
 	margin-right: auto;
 }
 
+.HeaderContent__text-title {
+	width: 10em;
+	text-align: right;
+}
+
 .HeaderContent__text-separator {
 	border-left: 1.5px solid $text-color;
 	height: 1.2em;
 	margin-left: 5px;
 	margin-right: 5px;
+}
+
+.HeaderContent__text-label {
+	width: 10em;
+	text-align: left;
 }

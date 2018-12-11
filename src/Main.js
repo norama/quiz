@@ -29,7 +29,7 @@ class Main extends React.Component {
 					<CardHeader className="Main__panel-header">
 						<HeaderContent title={TEXTS[this.state.page]} />
 					</CardHeader>
-					<CardBody>
+					<CardBody className="Main__panel-body">
 						<Nav className="Main__nav">
 							<NavItem>
 								<NavLink to="/contacts" activeClassName="selected" innerRef={(contacts) => {this.contacts = contacts}}>Kontakty</NavLink>

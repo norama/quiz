@@ -8,9 +8,9 @@ const HeaderContent = ({ title }) => (
 		<div className="HeaderContent__circle" />
 		<div className="HeaderContent__circle" />
 		<div className="HeaderContent__text">
-			<div>{title}</div>
+			<div className="HeaderContent__text-title">{title}</div>
 			<div className="HeaderContent__text-separator"></div>
-			<div>JS test</div>
+			<div className="HeaderContent__text-label">JS test</div>
 		</div>
 	</div>
 );
