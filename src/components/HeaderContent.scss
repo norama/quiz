@@ -1,0 +1,32 @@
+$radius: 3px;
+$diameter: $radius + $radius;
+$text-color: #c7c7c7;
+
+.HeaderContent__root {
+	display: flex;
+	align-items: center;
+}
+
+.HeaderContent__circle {
+	width: $diameter;
+	height: $diameter;
+	border-radius: $radius;
+	background-color: #888888;
+	margin-right: $diameter;
+}
+
+.HeaderContent__text {
+	display: flex;
+	align-items: center;
+	color: $text-color;
+	font-weight: 500;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.HeaderContent__text-separator {
+	border-left: 1.5px solid $text-color;
+	height: 1.2em;
+	margin-left: 5px;
+	margin-right: 5px;
+}
