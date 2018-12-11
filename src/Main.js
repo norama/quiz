@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, NavLink } from 'react-router-dom';
 import { Nav, NavItem } from 'reactstrap';
 
-import './Main.css';
+import './Main.scss';
 
 const Main = () => (
 	<Router>
