@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect, NavLink } from 'react-router-
 import { Nav, NavItem, Card, CardHeader, CardBody } from 'reactstrap';
 
 import HeaderContent from './components/HeaderContent';
+import Contacts from './components/Contacts';
 
 import './Main.scss';
 
@@ -56,19 +57,6 @@ class Main extends React.Component {
 		this.setState({ page: 'quiz'});
 	}
 } 
-
-class Contacts extends React.Component {
-	render() {
-		return (
-			<h2>{TEXTS['contacts']}</h2>
-		);
-	}
-
-	componentDidMount() {
-		this.props.onMount();
-	}
-}
-
 
 class Quiz extends React.Component {
 	render() {
