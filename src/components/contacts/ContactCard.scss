@@ -1,0 +1,25 @@
+
+.card.ContactCard__card {
+	height: fit-content;
+
+	&:hover .card-title.ContactCard__text {
+		width: 50%;
+	}
+}
+
+.card-body.ContactCard__card-body {
+	font-size: 1em;
+	font-weight: 600;
+	height: fit-content;
+	padding: 0.5rem;
+}
+
+.card-title.ContactCard__text, .card-text.ContactCard__text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.card-text.ContactCard__text {
+	margin-bottom: 10px;
+}

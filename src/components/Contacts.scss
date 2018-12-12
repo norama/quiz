@@ -1,14 +1,31 @@
+$contact-card-height: 12em;
+
 hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #666666;
-    margin: 1em 0;
-    padding: 0;
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #666666 !important;
+	margin: 1em 0;
+	padding: 0;
 }
 
 .Contacts__add-contact-form {
 	margin: 30px auto;
 	padding-left: 2em;
 	width: 20em;
+}
+
+.card-body.Contacts__card-body {
+	padding: 1em;
+}
+
+.ContactList__container {
+	height: $contact-card-height;
+	overflow-y: auto;
+}
+
+.col-sm-4.ContactList__item-col {
+	padding: 10px 8px 10px 8px;
+	overflow-x: hidden;
+	height: fit-content;
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card, CardHeader, CardBody, CardFooter, Button } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
-import { Form, FormGroup, FormFeedback, Input } from 'reactstrap';
-import { AvForm, AvField } from 'availity-reactstrap-validation';
+import uuid from 'uuid/v1';
 
 import ContactForm from './contacts/ContactForm';
+import ContactCard from './contacts/ContactCard';
 
 import './Contacts.scss';
 
@@ -30,17 +30,17 @@ class Contacts extends React.Component {
 		return (
 			<div className="Contacts__root">
 				<div className="Contacts__add-contact-form">
-					<AddContactForm addContact={this.addContact} />
+					<AddContactForm onAddContact={this.handleAddContact} />
 				</div>
 				<hr />
 				<div className="Contacts__contacts-list">
-					<ContactsList contacts={this.state.contacts} />
+					<ContactList contacts={this.state.contacts} />
 				</div>
 			</div>
 		);
 	}
 
-	addContact = (contact) => {
+	handleAddContact = (contact) => {
 		this.setState((prevState) => ({
 			contacts: [...prevState.contacts, contact]
 		}));
@@ -52,7 +52,7 @@ class AddContactForm extends React.Component {
 	render() {
 		return (
 			<Card>
-				<CardBody>
+				<CardBody className="Contacts__card-body">
 					<ContactForm onSubmit={this.handleAddContact} submitLabel={LABELS['add']} />
 				</CardBody>
 			</Card>
@@ -60,12 +60,23 @@ class AddContactForm extends React.Component {
 	}
 
 	handleAddContact = (contact) => {
-		alert(JSON.stringify(contact, null, '  '));
+		contact.id = uuid();
+		this.props.onAddContact(contact);
 	};
 }
 
-const ContactsList = () => (
-	<Container></Container>
+const ContactList = ({ contacts }) => (
+	<Container className="ContactList__container">
+		{rows(contacts, 3).map((row) => (
+			<Row key={row[0].id}>
+				{row.map((contact) => (
+					<Col sm="4" className="d-flex ContactList__item-col" key={contact.id}>
+						<ContactCard contact={contact}/>
+					</Col>
+				))}
+			</Row>
+		))}
+	</Container>
 );
 
 function rows(items, cols) {

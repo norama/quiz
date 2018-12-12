@@ -12,7 +12,8 @@ const FEEDBACK = {
 
 const PLACEHOLDER = {
 	name: "Jméno *",
-	email: "Email *"
+	email: "Email *",
+	tel: "Tel. číslo"
 };
 
 class ContactForm extends React.Component {
@@ -20,15 +21,18 @@ class ContactForm extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.formRef = React.createRef();
+
 		this.state = {
 			name: '',
-			email: ''
+			email: '',
+			tel: ''
 		};
 	}
 
 	render() {
 		return (
-			<AvForm onValidSubmit={this.handleSubmit}>
+			<AvForm onValidSubmit={this.handleSubmit} ref={this.formRef}>
 				<AvField
 					inputClass="ContactForm__input"
 					type="text"
@@ -53,6 +57,14 @@ class ContactForm extends React.Component {
 					onChange={this.handleEmailChange}
 					placeholder={PLACEHOLDER['email']}
 				/>
+				<AvField
+					inputClass="ContactForm__input"
+					type="text"
+					name="tel"
+					value={this.state.tel}
+					onChange={this.handleTelChange}
+					placeholder={PLACEHOLDER['tel']}
+				/>
 				<Button
 					type="submit"
 					color="primary"
@@ -66,23 +78,32 @@ class ContactForm extends React.Component {
 		);
 	}
 
-	handleEmailChange = (e) => {
-		this.setState({
-			email: e.target.value
-		});
-	};
-
 	handleNameChange = (e) => {
 		this.setState({
 			name: e.target.value,
 		});
 	};
 
+	handleEmailChange = (e) => {
+		this.setState({
+			email: e.target.value
+		});
+	};
+
+	handleTelChange = (e) => {
+		this.setState({
+			tel: e.target.value,
+		});
+	};
+
 	handleSubmit = () => {
 		this.props.onSubmit({
 			name: this.state.name,
-			email: this.state.email
+			email: this.state.email,
+			tel: this.state.tel
 		});
+
+		this.formRef.current.reset();
 	}
 }
 
