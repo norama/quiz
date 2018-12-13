@@ -70,7 +70,7 @@ const ContactList = ({ contacts }) => (
 		{rows(contacts, 3).map((row) => (
 			<Row key={row[0].id}>
 				{row.map((contact) => (
-					<Col sm="4" className="d-flex ContactList__item-col" key={contact.id}>
+					<Col xs="12" sm="4" className="d-flex ContactList__item-col" key={contact.id}>
 						<ContactCard contact={contact}/>
 					</Col>
 				))}

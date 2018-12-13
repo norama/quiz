@@ -23,13 +23,13 @@ $border-width: 2px;
 .nav-item {
 	&:first-of-type {
 		margin-left: auto;
-		width: 12em;
+		max-width: 12em;
 		text-align: right;
 	}
 
 	&:last-of-type {
 		margin-right: auto;
-		width: 10em;
+		max-width: 10em;
 		text-align: left;
 	}
 

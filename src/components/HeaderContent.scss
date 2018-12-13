@@ -8,7 +8,7 @@ $text-color: #c7c7c7;
 }
 
 .HeaderContent__circle {
-	width: $diameter;
+	min-width: $diameter;
 	height: $diameter;
 	border-radius: $radius;
 	background-color: #888888;
@@ -25,8 +25,9 @@ $text-color: #c7c7c7;
 }
 
 .HeaderContent__text-title {
-	width: 10em;
+	max-width: 10em;
 	text-align: right;
+	text-overflow: hidden;
 }
 
 .HeaderContent__text-separator {
@@ -37,6 +38,8 @@ $text-color: #c7c7c7;
 }
 
 .HeaderContent__text-label {
-	width: 10em;
+	max-width: 10em;
 	text-align: left;
+	white-space: nowrap;
+	text-overflow: hidden;
 }
