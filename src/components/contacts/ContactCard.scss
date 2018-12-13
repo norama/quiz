@@ -1,10 +1,41 @@
 
 .card.ContactCard__card {
 	height: fit-content;
-	width: 100%;
 
-	&:hover .card-title.ContactCard__text {
-		width: 50%;
+	& .card-title {
+		width: 100%;
+		display: flex;
+	}
+
+	& .ContactCard__name {
+		width: 90%;
+	}
+
+	& .ContactCard__icons {
+		width: 0;
+		height: 0;
+	}
+
+	&:hover .ContactCard__name {
+		width: 70%;
+	}
+
+	&:hover .ContactCard__icons {
+		width: 30%;
+		height: auto;
+		margin-top: 0.3em;
+	}
+
+	& .ContactCard__icon {
+		margin-left: 0.5em;
+		width: 1em;
+		font-size: 0.8em;
+		opacity: 0;
+	}
+
+	&:hover .ContactCard__icon {
+		opacity: 0.7;
+		cursor: pointer;
 	}
 }
 
@@ -15,7 +46,7 @@
 	padding: 0.5rem;
 }
 
-.card-title.ContactCard__text, .card-text.ContactCard__text {
+.card-title .ContactCard__name, .card-text.ContactCard__text {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
