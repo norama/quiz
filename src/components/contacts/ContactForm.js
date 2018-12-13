@@ -104,6 +104,12 @@ class ContactForm extends React.Component {
 		});
 
 		this.formRef.current.reset();
+
+		this.setState({
+			name: '',
+			email: '',
+			tel: ''
+		});
 	}
 }
 
