@@ -18,12 +18,12 @@ class Main extends React.Component {
 		super(props);
 
 		this.state = {
-			page: null
+			page: null,
+			contacts: []
 		};
 	}
 
 	render() {
-		console.log(window);
 		return (
 			<Router>
 				<Card className="Main__panel">
@@ -41,7 +41,14 @@ class Main extends React.Component {
 						</Nav>
 		
 						<Route exact path="/" render={() => (<Redirect to="/contacts"/>)} />
-						<Route path="/contacts" render={() => (<Contacts onMount={this.handleContactsSelected} />)} />
+						<Route path="/contacts" render={() => (
+								<Contacts
+									onMount={this.handleContactsSelected}
+									contacts={this.state.contacts}
+									onChangeContacts={this.handleChangeContacts}
+								/>
+							)}
+						/>
 						<Route path="/quiz" render={() => (<Quiz onMount={this.handleQuizSelected} />)} />
 					</CardBody>
 				</Card>
@@ -50,12 +57,16 @@ class Main extends React.Component {
 	}
 
 	handleContactsSelected = () => {
-		this.setState({ page: 'contacts'});
+		this.setState({ page: 'contacts' });
 	}
 
 	handleQuizSelected = () => {
-		this.setState({ page: 'quiz'});
+		this.setState({ page: 'quiz' });
 	}
+
+	handleChangeContacts = (contacts) => {
+		this.setState({ contacts });
+	};
 } 
 
 class Quiz extends React.Component {

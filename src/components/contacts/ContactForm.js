@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import _ from 'lodash';
-import { Card, CardHeader, CardBody, CardFooter, Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 
@@ -20,7 +20,7 @@ const PLACEHOLDER = {
 };
 
 const EMPTY_CONTACT = {
-	id: null,
+	id: '',
 	name: '',
 	email: '',
 	tel: ''

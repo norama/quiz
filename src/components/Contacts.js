@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import _ from 'lodash';
 
 import { Card, CardBody } from 'reactstrap';
@@ -16,14 +18,6 @@ const LABELS = {
 
 class Contacts extends React.Component {
 
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			contacts: []
-		};
-	}
-
 	componentDidMount() {
 		this.props.onMount();
 	}
@@ -37,7 +31,7 @@ class Contacts extends React.Component {
 				<hr />
 				<div className="Contacts__contacts-list">
 					<ContactList
-						contacts={this.state.contacts}
+						contacts={this.props.contacts}
 						onUpdateContact={this.handleUpdateContact}
 						onDeleteContact={this.handleDeleteContact}
 					/>
@@ -47,21 +41,22 @@ class Contacts extends React.Component {
 	}
 
 	handleAddContact = (contact) => {
-		this.setState((prevState) => ({
-			contacts: [...prevState.contacts, contact]
-		}));
+		const contacts = [...this.props.contacts, contact];
+		this.props.onChangeContacts(contacts);
 	};
 
 	handleUpdateContact = (contact) => {
-		this.setState((prevState) => ({
-			contacts: prevState.contacts.map((origContact) => (origContact.id === contact.id ? contact : origContact))
-		}));
+		const contacts = this.props.contacts.map((origContact) => (
+			origContact.id === contact.id ? contact : origContact
+		));
+		this.props.onChangeContacts(contacts);
 	};
 
 	handleDeleteContact = (contact) => {
-		this.setState((prevState) => ({
-			contacts: _.filter(prevState.contacts, (origContact) => (origContact.id !== contact.id))
-		}));
+		const contacts = _.filter(this.props.contacts,
+			(origContact) => (origContact.id !== contact.id)
+		);
+		this.props.onChangeContacts(contacts);
 	};
 }
 
@@ -114,5 +109,16 @@ function rows(items, cols) {
 		return acc;
 	}, []);
 }
+
+Contacts.propTypes = {
+	onMount: PropTypes.func.isRequired,
+	contacts: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.string.isRequired,
+		name: PropTypes.string.isRequired,
+		email: PropTypes.string.isRequired,
+		tel: PropTypes.string.isRequired
+	})).isRequired,
+	onChangeContacts: PropTypes.func.isRequired
+};
 
 export default Contacts;
