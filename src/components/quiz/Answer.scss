@@ -1,0 +1,13 @@
+.card.Answer__root {
+	width: 16em;
+	margin: 50px auto;
+}
+
+.card-body.Answer__body {
+	margin: auto;
+	text-align: center;
+
+	& i {
+		margin-right: 10px;
+	}
+}

@@ -4,6 +4,7 @@ import { Nav, NavItem, Card, CardHeader, CardBody } from 'reactstrap';
 
 import HeaderContent from './components/HeaderContent';
 import Contacts from './components/Contacts';
+import Quiz from './components/Quiz';
 
 import './Main.scss';
 
@@ -19,7 +20,8 @@ class Main extends React.Component {
 
 		this.state = {
 			page: null,
-			contacts: []
+			contacts: [],
+			quiz: null
 		};
 	}
 
@@ -49,7 +51,14 @@ class Main extends React.Component {
 								/>
 							)}
 						/>
-						<Route path="/quiz" render={() => (<Quiz onMount={this.handleQuizSelected} />)} />
+						<Route path="/quiz" render={() => (
+								<Quiz
+									onMount={this.handleQuizSelected}
+									quiz={this.state.quiz}
+									onChangeQuiz={this.handleChangeQuiz}
+								/>
+							)}
+						/>
 					</CardBody>
 				</Card>
 			</Router>
@@ -67,18 +76,10 @@ class Main extends React.Component {
 	handleChangeContacts = (contacts) => {
 		this.setState({ contacts });
 	};
+
+	handleChangeQuiz = (quiz) => {
+		this.setState({ quiz });
+	}
 } 
-
-class Quiz extends React.Component {
-	render() {
-		return (
-			<h2>{TEXTS['quiz']}</h2>
-		);
-	}
-
-	componentDidMount() {
-		this.props.onMount();
-	}
-}
 
 export default Main;
