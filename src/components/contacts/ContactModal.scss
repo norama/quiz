@@ -1,7 +1,16 @@
+.modal-dialog.ContactModal__root .modal-content {
+	width: 60%;
+	margin: auto;
+}
+
 .ContactModal__header {
 	background-color: #f7f7f7;
 }
 
 .ContactModal__text {
-	
+	font-size: 0.8em;
+}
+
+.ContactModal__name {
+	font-weight: 700;
 }

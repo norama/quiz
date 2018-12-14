@@ -17,7 +17,7 @@ class UpdateContactModal extends React.Component {
 
 	render() {
 		return (
-			<Modal isOpen={this.props.isOpen}>
+			<Modal isOpen={this.props.isOpen} className="ContactModal__root">
 				<ModalHeader className="ContactModal__header">{TITLE}</ModalHeader>
 				<ModalBody>
 					<ContactForm

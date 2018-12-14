@@ -17,11 +17,13 @@ class DeleteContactModal extends React.Component {
 
 	render() {
 		return (
-			<Modal isOpen={this.props.isOpen}>
+			<Modal isOpen={this.props.isOpen} className="ContactModal__root">
 				<ModalHeader className="ContactModal__header">{TITLE}</ModalHeader>
 				<ModalBody>
 					<div className="ContactModal__text">
-						{TEXT + " " + this.props.contact.name + "."}
+						<span>{TEXT + " "}</span>
+						<span className="ContactModal__name">{this.props.contact.name}</span>
+						<span>{"."}</span>
 					</div>
 					<Button outline
 						onClick={this.props.onCancel}
