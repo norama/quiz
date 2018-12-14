@@ -1,5 +1,7 @@
 import React from 'react';
-import { Card, CardHeader, CardBody, CardFooter, Button } from 'reactstrap';
+import _ from 'lodash';
+
+import { Card, CardBody } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
 import uuid from 'uuid/v1';
 
@@ -34,7 +36,11 @@ class Contacts extends React.Component {
 				</div>
 				<hr />
 				<div className="Contacts__contacts-list">
-					<ContactList contacts={this.state.contacts} />
+					<ContactList
+						contacts={this.state.contacts}
+						onUpdateContact={this.handleUpdateContact}
+						onDeleteContact={this.handleDeleteContact}
+					/>
 				</div>
 			</div>
 		);
@@ -45,6 +51,18 @@ class Contacts extends React.Component {
 			contacts: [...prevState.contacts, contact]
 		}));
 	};
+
+	handleUpdateContact = (contact) => {
+		this.setState((prevState) => ({
+			contacts: prevState.contacts.map((origContact) => (origContact.id === contact.id ? contact : origContact))
+		}));
+	};
+
+	handleDeleteContact = (contact) => {
+		this.setState((prevState) => ({
+			contacts: _.filter(prevState.contacts, (origContact) => (origContact.id !== contact.id))
+		}));
+	};
 }
 
 class AddContactForm extends React.Component {
@@ -53,7 +71,10 @@ class AddContactForm extends React.Component {
 		return (
 			<Card>
 				<CardBody className="Contacts__card-body">
-					<ContactForm onSubmit={this.handleAddContact} submitLabel={LABELS['add']} />
+					<ContactForm
+						onSubmit={this.handleAddContact}
+						submitLabel={LABELS['add']}
+					/>
 				</CardBody>
 			</Card>
 		);
@@ -65,13 +86,17 @@ class AddContactForm extends React.Component {
 	};
 }
 
-const ContactList = ({ contacts }) => (
+const ContactList = ({ contacts, onUpdateContact, onDeleteContact }) => (
 	<Container className="ContactList__container">
 		{rows(contacts, 3).map((row) => (
 			<Row key={row[0].id}>
 				{row.map((contact) => (
 					<Col xs="12" sm="4" className="d-flex ContactList__item-col" key={contact.id}>
-						<ContactCard contact={contact}/>
+						<ContactCard
+							contact={contact}
+							onUpdateContact={onUpdateContact}
+							onDeleteContact={onDeleteContact}
+						/>
 					</Col>
 				))}
 			</Row>

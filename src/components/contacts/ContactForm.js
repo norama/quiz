@@ -1,4 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
+import _ from 'lodash';
 import { Card, CardHeader, CardBody, CardFooter, Button } from 'reactstrap';
 
 import { AvForm, AvField } from 'availity-reactstrap-validation';
@@ -16,6 +19,13 @@ const PLACEHOLDER = {
 	tel: "Tel. číslo"
 };
 
+const EMPTY_CONTACT = {
+	id: null,
+	name: '',
+	email: '',
+	tel: ''
+};
+
 class ContactForm extends React.Component {
 
 	constructor(props) {
@@ -23,11 +33,7 @@ class ContactForm extends React.Component {
 
 		this.formRef = React.createRef();
 
-		this.state = {
-			name: '',
-			email: '',
-			tel: ''
-		};
+		this.state = _.clone(this.props.contact);
 	}
 
 	render() {
@@ -65,6 +71,16 @@ class ContactForm extends React.Component {
 					onChange={this.handleTelChange}
 					placeholder={PLACEHOLDER['tel']}
 				/>
+				{this.props.onCancel &&
+					<Button outline
+						onClick={this.props.onCancel}
+						color="secondary"
+						className="float-left ContactForm__button"
+						size="sm"
+					>
+						{this.props.cancelLabel}
+					</Button>
+				}
 				<Button
 					type="submit"
 					color="primary"
@@ -97,20 +113,29 @@ class ContactForm extends React.Component {
 	};
 
 	handleSubmit = () => {
-		this.props.onSubmit({
-			name: this.state.name,
-			email: this.state.email,
-			tel: this.state.tel
-		});
+		this.props.onSubmit(_.clone(this.state));
 
 		this.formRef.current.reset();
 
-		this.setState({
-			name: '',
-			email: '',
-			tel: ''
-		});
+		this.setState(EMPTY_CONTACT);
 	}
 }
+
+ContactForm.propTypes = {
+	contact: PropTypes.shape({
+		id: PropTypes.string.isRequired,
+		name: PropTypes.string.isRequired,
+		email: PropTypes.string.isRequired,
+		tel: PropTypes.string.isRequired
+	}),
+	onSubmit: PropTypes.func.isRequired,
+	submitLabel: PropTypes.string.isRequired,
+	onCancel: PropTypes.func,
+	cancelLabel: PropTypes.string
+};
+
+ContactForm.defaultProps = {
+	contact: EMPTY_CONTACT
+};
 
 export default ContactForm;
