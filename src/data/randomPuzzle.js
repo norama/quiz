@@ -1,6 +1,7 @@
+import random from './random';
+
 const OPTIONS_COUNT = 4;
 
-const MIN = 1;
 const MAX = 20;
 
 const OPERATIONS = [{
@@ -26,11 +27,11 @@ const TRIALS_COUNT = 1000;
  * }
  *
  */
-function randomPuzzle() {
+function randomPuzzle(randomFunc = random) {
 
-	const x = random();
-	const y = random();
-	const operationIndex = random(0, 2);
+	const x = randomFunc();
+	const y = randomFunc();
+	const operationIndex = randomFunc(0, 2);
 	const operation = OPERATIONS[operationIndex];
 	const result = operation.func(x, y);
 
@@ -40,7 +41,7 @@ function randomPuzzle() {
 	// add different random options, limit trials just in case...
 	let count = 0;
 	while (options.length < OPTIONS_COUNT && count++ < TRIALS_COUNT) {
-		const option = randomOption(operation, x, y, result);
+		const option = randomOption(operation, x, y, result, randomFunc);
 		if (!options.includes(option)) {
 			options.push(option);
 		}
@@ -66,29 +67,21 @@ function randomPuzzle() {
 	};
 }
 
-// random number between min (included) and max (included)
-function random(min=MIN, max=MAX) {
-	if (min > max) {
-		[min, max] = [max, min];
-	}
-	return Math.floor(Math.random() * (max + 1 - min)) + min;
-}
-
 // random false result option based on arguments and operation
-function randomOption(operation, x, y, result) {
+function randomOption(operation, x, y, result, randomFunc) {
 
 	switch (operation.sign) {
 		case "+":
-			return random(Math.max(x, y), result * 2 + 8);
+			return randomFunc(Math.max(x, y), result * 2 + 8);
 
 		case "-":
-			return random(-MAX, x);
+			return randomFunc(-MAX, x);
 
 		default:
 			// "*": just do something crazy depending on x and y :-)
 			return result +
-				random(0, 1) * random(0, 10) * x -
-				random(0, 1) * random(0, 3) * y;
+				randomFunc(0, 1) * randomFunc(0, 10) * x -
+				randomFunc(0, 1) * randomFunc(0, 3) * y;
 	}
 }
 
