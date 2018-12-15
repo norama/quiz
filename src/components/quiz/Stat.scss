@@ -1,0 +1,17 @@
+.Stat__root {
+	display: flex;
+	margin: 30px auto;
+	width: 18em;
+}
+
+.Stat__badge {
+	opacity: 0.9;
+
+	& + & {
+		margin-left: auto;
+	}
+
+	& i {
+		margin-right: 10px;
+	}
+}

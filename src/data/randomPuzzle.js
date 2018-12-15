@@ -47,7 +47,7 @@ function randomPuzzle() {
 	}
 
 	// sort the options
-	options.sort();
+	options.sort((a, b) => (a - b));
 
 	// just in case: fill missing options deterministically
 	while (options.length < OPTIONS_COUNT) {
@@ -77,14 +77,14 @@ function random(min=MIN, max=MAX) {
 // random false result option based on arguments and operation
 function randomOption(operation, x, y, result) {
 
-	const s = result !== 0 ? Math.sign(result) : 1;
-
 	switch (operation.sign) {
 		case "+":
-		case "-":
 			// extending result-based range 
 			// is necessary for small results in order that we had enough possibilities
-			return random(Math.floor(result / 2) - s * 20, result * 2 + s * 20);
+			return random(Math.floor(result / 2) - 20, result * 2 + 20);
+
+		case "-":
+			return random(-MAX, x);
 
 		default:
 			// "*": just do something crazy depending on x and y :-)

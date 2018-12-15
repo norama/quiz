@@ -17,8 +17,6 @@ const NEXT = "DALŠÍ OTÁZKA";
 class Answer extends React.Component {
 
 	render() {
-		const success = this.props.answer === this.props.result;
-
 		return (
 			<Card className="Quiz__root">
 				<CardHeader className="Quiz__header">
@@ -29,7 +27,7 @@ class Answer extends React.Component {
 						{"" + this.props.result + "!"}
 					</CardTitle>
 					<CardText>
-						{success ? <Success /> : <Failure />}
+						{this.props.success ? <Success /> : <Failure />}
 					</CardText>
 					<Button
 						color="primary"
@@ -53,7 +51,7 @@ const Failure = () => (
 );
 
 Answer.propTypes = {
-	answer: PropTypes.number.isRequired,
+	success: PropTypes.bool.isRequired,
 	result: PropTypes.number.isRequired,
 	onNext: PropTypes.func.isRequired
 };
