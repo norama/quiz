@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, NavLink } from 'react-router-dom';
 import { Nav, NavItem, Card, CardHeader, CardBody } from 'reactstrap';
 
 import HeaderContent from './components/HeaderContent';
@@ -41,24 +41,26 @@ class Main extends React.Component {
 								<NavLink to="/quiz" activeClassName="selected" innerRef={(quiz) => {this.quiz = quiz}}>Kvíz</NavLink>
 							</NavItem>
 						</Nav>
-		
-						<Route exact path="/" render={() => (<Redirect to="/contacts"/>)} />
-						<Route path="/contacts" render={() => (
-								<Contacts
-									onMount={this.handleContactsSelected}
-									contacts={this.state.contacts}
-									onChangeContacts={this.handleChangeContacts}
-								/>
-							)}
-						/>
-						<Route path="/quiz" render={() => (
-								<Quiz
-									onMount={this.handleQuizSelected}
-									quiz={this.state.quiz}
-									onChangeQuiz={this.handleChangeQuiz}
-								/>
-							)}
-						/>
+
+						<Switch>
+							<Route exact path="/" render={() => (<Redirect to="/contacts"/>)} />
+							<Route path="/contacts" render={() => (
+									<Contacts
+										onMount={this.handleContactsSelected}
+										contacts={this.state.contacts}
+										onChangeContacts={this.handleChangeContacts}
+									/>
+								)}
+							/>
+							<Route path="/quiz" render={() => (
+									<Quiz
+										onMount={this.handleQuizSelected}
+										quiz={this.state.quiz}
+										onChangeQuiz={this.handleChangeQuiz}
+									/>
+								)}
+							/>
+						</Switch>
 					</CardBody>
 				</Card>
 			</Router>
