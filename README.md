@@ -1,10 +1,21 @@
 # Quiz
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Table of Contents
+
+- [Description](#description)
+- [Demo](#demo)
+- [Available Scripts](#available-scripts)
+  - [yarn start](#yarn-start)
+  - [yarn test](#yarn-test)
+  - [yarn run build](#yarn-run-build)
+  
+## Description
+
 This is a simple quiz program that generates random puzzles in form `x + y`, `x - y`, `x * y`
 where `x` and `y` are integers in the range `[1, 20]`. There is a separate contact list page 
 where contact data for more poeple can be added, updated and removed. 
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Demo
 
@@ -36,16 +47,6 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
 ## Learn More
 
