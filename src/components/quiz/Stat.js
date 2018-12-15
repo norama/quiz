@@ -9,18 +9,18 @@ class Stat extends React.Component {
 
 	render() {
 		return (
-			<h4 className="Stat__root">
-				<Badge color="success" className="Stat__badge">
+			<h4 className="d-flex Stat__root">
+				<Badge color="success" className="Stat__badge float-left">
 					<i className="fas fa-check-circle"></i>
 					{this.props.stat.success}
 				</Badge>
-				<Badge color="secondary" className="Stat__badge">
-					<i className="fas fa-list-ol"></i>
-					{this.props.stat.count}
-				</Badge>
-				<Badge color="danger" className="Stat__badge">
+				<Badge color="danger" className="Stat__badge float-left">
 					<i className="fas fa-times-circle"></i>
 					{this.props.stat.failure}
+				</Badge>
+				<Badge color="secondary" className="Stat__badge float-right">
+					<i className="fas fa-list-ol"></i>
+					{this.props.stat.count}
 				</Badge>
 			</h4>
 		);

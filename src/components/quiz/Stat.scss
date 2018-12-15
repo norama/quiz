@@ -1,13 +1,16 @@
 .Stat__root {
-	display: flex;
 	margin: 30px auto;
-	width: 18em;
+	width: 100%;
 }
 
 .Stat__badge {
 	opacity: 0.9;
 
-	& + & {
+	&:first-child {
+		margin-right: 20px;
+	}
+
+	&:last-child {
 		margin-left: auto;
 	}
 
