@@ -6,6 +6,10 @@ where contact data for more poeple can be added, updated and removed.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Demo
+
+Click [here](https://norama.github.io/quiz/) to see it running.
+
 ## Available Scripts
 
 In the project directory, you can run:
