@@ -38,7 +38,7 @@ class Main extends React.Component {
 								<NavLink to="/contacts" activeClassName="selected" innerRef={(contacts) => {this.contacts = contacts}}>Kontakty</NavLink>
 							</NavItem>
 							<NavItem>
-								<NavLink to="/quiz" activeClassName="selected" innerRef={(quiz) => {this.quiz = quiz}}>Kvíz</NavLink>
+								<NavLink to="/puzzle" activeClassName="selected" innerRef={(quiz) => {this.quiz = quiz}}>Kvíz</NavLink>
 							</NavItem>
 						</Nav>
 
@@ -52,7 +52,7 @@ class Main extends React.Component {
 									/>
 								)}
 							/>
-							<Route path="/quiz" render={() => (
+							<Route path="/puzzle" render={() => (
 									<Quiz
 										onMount={this.handleQuizSelected}
 										quiz={this.state.quiz}
