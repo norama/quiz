@@ -10,6 +10,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - [yarn start](#yarn-start)
   - [yarn test](#yarn-test)
   - [yarn run build](#yarn-run-build)
+- [Learn More](#learn-more)
   
 ## Description
 
