@@ -79,9 +79,7 @@ function randomOption(operation, x, y, result) {
 
 	switch (operation.sign) {
 		case "+":
-			// extending result-based range 
-			// is necessary for small results in order that we had enough possibilities
-			return random(Math.floor(result / 2) - 20, result * 2 + 20);
+			return random(Math.max(x, y), result * 2 + 20);
 
 		case "-":
 			return random(-MAX, x);
