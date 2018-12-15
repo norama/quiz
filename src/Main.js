@@ -27,7 +27,7 @@ class Main extends React.Component {
 
 	render() {
 		return (
-			<Router>
+			<Router basename="/quiz">
 				<Card className="Main__panel">
 					<CardHeader className="Main__panel-header">
 						<HeaderContent title={TEXTS[this.state.page]} />
