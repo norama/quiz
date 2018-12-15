@@ -31,7 +31,7 @@ class Answer extends React.Component {
 					</CardText>
 					<Button
 						color="primary"
-						size="sm"
+						size="lg"
 						onClick={this.props.onNext}
 					>
 						{NEXT}
