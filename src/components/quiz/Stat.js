@@ -9,7 +9,7 @@ class Stat extends React.Component {
 
 	render() {
 		return (
-			<h4 className="d-flex Stat__root">
+			<h3 className="d-flex Stat__root">
 				<Badge color="success" className="Stat__badge float-left">
 					<i className="fas fa-check-circle"></i>
 					{this.props.stat.success}
@@ -22,7 +22,7 @@ class Stat extends React.Component {
 					<i className="fas fa-list-ol"></i>
 					{this.props.stat.count}
 				</Badge>
-			</h4>
+			</h3>
 		);
 	}
 }
