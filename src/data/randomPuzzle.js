@@ -79,7 +79,7 @@ function randomOption(operation, x, y, result) {
 
 	switch (operation.sign) {
 		case "+":
-			return random(Math.max(x, y), result * 2 + 20);
+			return random(Math.max(x, y), result * 2 + 8);
 
 		case "-":
 			return random(-MAX, x);
