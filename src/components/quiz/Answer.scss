@@ -8,7 +8,18 @@
 	text-align: center;
 	line-height: 3;
 
+	.card-title {
+		font-size: 1.4em;
+		font-weight: 700;
+	}
+
 	& i {
 		margin-right: 10px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.card-body.Answer__body {
+		line-height: 1.8;
 	}
 }

@@ -12,7 +12,6 @@ hr {
 	margin: 20px auto;
 	padding-left: 2em;
 	width: 20em;
-	height: 20em;
 }
 
 .card-body.Contacts__card-body {
@@ -23,4 +22,12 @@ hr {
 	padding: 0 8px 20px 8px;
 	overflow-x: hidden;
 	height: fit-content;
+}
+
+@media only screen and (max-width: 600px) {
+	.Contacts__add-contact-form {
+		margin: 20px auto;
+		padding-left: 0;
+		width: 100%;
+	}
 }

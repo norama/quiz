@@ -24,7 +24,9 @@ class Answer extends React.Component {
 				</CardHeader>
 				<CardBody className="Answer__body">
 					<CardTitle>
-						{"" + this.props.result + "!"}
+						<span className={this.props.success ? "text-success" : "text-danger"}>
+							{"" + this.props.result}
+						</span>
 					</CardTitle>
 					<CardText>
 						{this.props.success ? <Success /> : <Failure />}

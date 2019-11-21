@@ -3,12 +3,19 @@
 	margin: 50px auto;
 }
 
+@media only screen and (max-width: 600px) {
+	.card.Quiz__root {
+		width: 100%;
+		margin: 10px auto;
+	}
+}
+
 .card-header.Quiz__header {
 	font-weight: 700;
 }
 
 .card-body {
 	&.Question__body, &.Answer__body {
-		height: 9.5em;
+		height: auto;
 	}
 }
