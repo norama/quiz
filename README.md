@@ -16,7 +16,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is a simple quiz program that generates random puzzles in form `x + y`, `x - y`, `x * y`
 where `x` and `y` are integers in the range `[1, 20]`. There is a separate contact list page 
-where contact data for more poeple can be added, updated and removed. 
+where contact data for more people can be added, updated and removed. 
 
 ## Demo
 
